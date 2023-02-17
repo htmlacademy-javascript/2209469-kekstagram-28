@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Эмиль Абусев](https://up.htmlacademy.ru/javascript/28/user/2209469).
-* Наставник: `Неизвестно`.
+* Наставник: `Дмитрий Дроганов` (https://htmlacademy.ru/profile/dmdragon).
 
 ---
 
