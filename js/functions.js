@@ -32,8 +32,8 @@ const myPadStart = (string, minLength, pad) => {
   while (result.length < minLength) {
     const newResultLength = result.length + pad.length;
     const actualPad = newResultLength <= minLength ? pad : pad.slice(0, minLength - newResultLength);
-    result =actualPad + result;
+    result = actualPad + result;
   }
   return result;
-  }
+};
 
