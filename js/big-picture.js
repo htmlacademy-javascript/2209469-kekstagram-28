@@ -1,33 +1,37 @@
-import { isEscapeKey } from './util';
+
 
 const userModalElement = document.querySelector('.big-picture');
-const userModalOpenElement = document.querySelector('picture_img');
 const userModalCloseElement = document.querySelector('.big-picture__cancel');
-
-const onDocumentKeydown = (evt) => {
-  if (isEscapeKey(evt)) {
-    evt.preventDefault();
-    closeUserModal();
-  }
-};
+const userModalBigPicture = document.querySelector('.big-picture__img img');
+const userModalLike = document.querySelector('.likes-count');
+const userModalComment = document.querySelector('.comments-count');
+const userModalListComment = document.querySelector('.social__comments');
+const userModalDescription = document.querySelector('.social__caption');
+const commentsLoader = document.querySelector('.comments-loader');
 
 function openUserModal () {
   userModalElement.classList.remove('hidden');
-  document.addEventListener('keydown', onDocumentKeydown);
+  commentsLoader.classList.add('hidden');
 }
 
 function closeUserModal () {
-  userModalCloseElement.classList.add('hidden');
-  document.removeEventListener('keydown', onDocumentKeydown);
+  userModalElement.classList.add('hidden');
 }
 
 userModalCloseElement.addEventListener('click', () => {
   openUserModal();
 });
 
-userModalOpenElement.addEventListener('click', () => {
+userModalCloseElement.addEventListener('click', () => {
   closeUserModal();
 });
 
+function showBigPicture ({ comments, description, likes, url }) {
+  userModalBigPicture.src = url;
+  userModalLike.textContent = likes;
+  userModalListComment.textContent = comments;
+  userModalDescription.textContent = description;
+  openUserModal();
+}
 
 export { showBigPicture };
